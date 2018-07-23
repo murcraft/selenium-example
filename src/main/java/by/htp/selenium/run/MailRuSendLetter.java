@@ -9,7 +9,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 
 public class MailRuSendLetter {
 
@@ -49,18 +48,15 @@ public class MailRuSendLetter {
 		emailArea.clear();
 		emailArea.sendKeys("ogulikpurse@gmail.com");
 		driver.findElement(By.xpath("//div[@class='compose-head']/descendant::input[@class='b-input']")).sendKeys("sending email from WebSD");
-		String parentHandle = driver.getWindowHandle();
 
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		
-		
-//		driver.findElement(findAdress).sendKeys(text);
 		WebElement frame = driver.findElement(By.xpath("//iframe[contains(@id,'composeEditor_ifr')]"));
 		driver.switchTo().frame(frame);
 		WebElement elementMessageBody = driver.findElement(message);
 		elementMessageBody.sendKeys("Hey! It's my home work! ))");
 		driver.switchTo().defaultContent();
-		driver.findElement(By.cssSelector("#b-toolbar__right > div:nth-child(3) > div > div:nth-child(2) > div.b-toolbar__item.b-toolbar__item_.b-toolbar__item_false > div > span")).click();//
+		driver.findElement(By.cssSelector("#b-toolbar__right > div:nth-child(3) > div > div:nth-child(2) > div.b-toolbar__item.b-toolbar__item_.b-toolbar__item_false > div > span")).click();
 	}
 
 }
