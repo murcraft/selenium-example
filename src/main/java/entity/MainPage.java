@@ -20,7 +20,7 @@ public class MainPage extends Page{
 	private final String domen = "@inbox.ru";
 
 	private WebElement elementLogin = null;
-	private WebElement elementPassorw = null;
+	private WebElement elementPassword = null;
 	private WebElement elementLoginDomain = null;
 	private WebElement elementAutButton = null;
 
@@ -34,7 +34,7 @@ public class MainPage extends Page{
 
 	public void findMailboxLoginAndPassword() {
 		elementLogin = driver.findElement(findLogin);
-		elementPassorw = driver.findElement(findPassword);
+		elementPassword = driver.findElement(findPassword);
 		elementLoginDomain = driver.findElement(findLoginDomain);
 		elementAutButton = driver.findElement(findAuthButton);
 
@@ -42,7 +42,7 @@ public class MainPage extends Page{
 
 	public MessagesPage enterLoginAndPassword() {
 		elementLogin.sendKeys(login);
-		elementPassorw.sendKeys(password);
+		elementPassword.sendKeys(password);
 		new Select(elementLoginDomain).selectByVisibleText(domen);
 		elementAutButton.click();
 		return new MessagesPage(driver);
